@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="container">
+        <div class="info">
+            <h1 style="font-size: 50px;">Counter</h1>
+            <p>Visits = {{session['number']}}</p>
+            <p>Count = {{session['count']}}</p>
+        </div>
+        <div class="buttons">
+            <a href='/'><button style="background-color: green;">Click +1</button> </a>
+            <a href='/add_two'><button style="background-color: yellow;">Click +2</button> </a>
+            <a href='/destroy_session'><button style="background-color: red;">Reset</button> </a>
+        </div>
+        <div>
+            <form action="/increment" method="post">
+                <label for="increment">Increment by:</label>
+                <input type="number" name="increment" id="increment" value="0">
+                <input type="submit" style="background-color: orange;">
+            </form>
+        </div>
+    </div>
+</body> 
+</html>

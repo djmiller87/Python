@@ -1,0 +1,33 @@
+#container{
+    margin: auto;
+    width: 500px;
+    display: block;
+    justify-content: center;
+}
+
+.info{
+    margin: auto;
+    display:block;
+}
+
+h1, p{
+    font-weight: bold;
+    padding: 25px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons, form, input{
+margin: 20px;
+    display: flex;
+justify-content: center;
+}
+
+button, a, label{
+    height: 40px;
+    width: 60px;
+    font-weight: bold;
+    margin: 20px;
+    display: inline-block;
+}
