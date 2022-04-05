@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <form action="/result" method="post">
+                <h1 style="font-size: 50px;">Dojo Survey</h1>
+                <label>Name:</label>
+                <input type="text" name="name" style="padding-left: 6px;">
+                <label for="location">Dojo Location:</label>
+                <select name="location" id="location">
+                    <option>--Select a City--</option>
+                    <option>Kansas City</option>
+                    <option>Bismarck</option>
+                    <option>Denver</option>
+                    <option>Winona</option>
+                    <option>Portland</option>
+                    <option>Seattle</option>
+                    <option>Charleston</option>
+                    <option>Orlando</option>
+                    <option>Helena</option>
+                    <option>Houston</option>
+                </select>
+                <label for="language">Favorite Language:</label>
+                <select name="language" id="language">
+                    <option>--Select a Language--</option>
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>Mern</option>
+                    <option>C++</option>
+                    <option>JavaScript</option>
+                    <option>CSS</option>
+                    <option>HTML</option>
+                    <option>PHP</option>
+                    <option>Swift</option>
+                    <option>Ruby</option>
+                </select>
+                <label style="margin-bottom: 0px;">Gender:</label>
+                <div class="option" style="margin-top: 0px;">
+                    <input type="radio" class="option" name="gender" value="Male">
+                    <label class="option">Male</label>
+                    <input type="radio" class="option" name="gender" value="Female">
+                    <label class="option">Female</label>
+                </div>
+                <label style="margin-bottom: 0px;">Operating System:</label>
+                <div class="option">
+                    <input type="checkbox" class="option" name="system" value="Mac">
+                    <label class="option">Mac</label>
+                    <input type="checkbox" class="option" name="system" value="Windows">
+                    <label class="option">Windows</label>
+                </div>
+                <label>Comments:</label>
+                <textarea name="comment" cols="40" rows="8" style="padding: 6px;"></textarea>
+                <input type="submit" style="width: 80px; background-color: rgb(202, 202, 77);">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

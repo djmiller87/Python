@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container2">
+        <div class="form2">
+            <h1 style="font-size: 50px; text-decoration: underline;">Submitted Info</h1>
+            <div class="user">
+                <div class="info">
+                    <p>Name:</p>
+                    <p>Dojo Location:</p>
+                    <p>Favorite Language:</p>
+                    <p>Gender:</p>
+                    <p>Operating System:</p>
+                    <p>Comment:</p>
+                </div>
+                <div class="info">
+                <p>{{session['name']}}</p>
+                <p>{{session['location']}}</p>
+                <p>{{session['language']}}</p>
+                <p>{{session['gender']}}</p>
+                <p>{{session['system']}}</p>
+                <p>{{session['comment']}}</p>
+                </div>
+            </div>
+            <a href="/reset"><button>Go Back</button></a>
+        </div>
+    </div>
+</body>
+</html>
