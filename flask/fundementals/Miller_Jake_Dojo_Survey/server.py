@@ -15,7 +15,10 @@ def result():
     session['comment'] = request.form['comment']
     if request.method == 'POST':
         session['system'] = request.form.getlist('system')
-    return render_template('result.html')
+        line = []
+        for os in session['system']:
+            line.append(os)
+    return render_template('result.html', opsy = line[0])
 
 @app.route('/reset')
 def reset():
