@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Leaderboard</h1>
+        <p>Enter your name into the leaderboard.</p>
+        <p>Number of guesses = {{session['attempts']}}</p>
+        <div class="guessing">
+            <form action="/leaders" class="leader" method="post">
+                <label for="leadername">Name:</label>
+                <input type="text" name="leadername" id="guess" autofocus="autofocus">
+                <p>Score: {{session['attempts']}}</p>
+                <input type="submit" style="background-color: rgb(60, 78, 60); color: white;">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

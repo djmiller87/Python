@@ -1,0 +1,52 @@
+.container{
+    margin: auto;
+    width: 800px;
+    font-family:'Balsamiq Sans', cursive;
+    display: block;
+    justify-content: center;
+}
+
+p, h1, .guessing, .play{
+    margin: 40px;
+    font-size: large;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+}
+
+h1{
+    font-size: 45px;
+}
+
+
+.guessing, .play{
+    margin: auto;
+    padding: 25px;
+    background-color: rgb(92, 53, 53);
+    color: rgb(144, 144, 38);
+    letter-spacing: 1px;
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+    border: 5px gray;
+}
+
+label, input{
+    margin: 15px;
+    /* padding: 5px; */
+    justify-content: center;
+}
+
+.play{
+    background-color: green;
+    color: white;
+}
+
+.again{
+    margin-top: 35px;
+    height: 30px;
+}
+
+
+
+

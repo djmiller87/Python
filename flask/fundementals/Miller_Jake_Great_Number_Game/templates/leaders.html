@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaders</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Leaders!</h1>
+        <p>Name: {{session['leadername']}}<br> Attempts: {{session['attempts']}}</p>
+        <div class="guessing">
+            <a href="/"><button style="background-color: blue; color: white;">Play Again</button></a>
+        </div>
+    </div>
+</body>
+</html>
