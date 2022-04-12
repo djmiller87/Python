@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Edit {{user_info.first_name}} {{user_info.last_name}}- User ID: {{user_info.id}}</h1>
+            <a href="/"class="home" style="background-color: white;"><button class="home">Home</button></a>
+        </div>
+        <form action="/update_user/{{user_info.id}}" method="post">
+            <input type="hidden" name="id" value="{{user_info.id}}">
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" value=" {{user_info.first_name}}">
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname" value=" {{user_info.last_name}}">
+            <label for="email">Email:</label>
+            <input type="text" name="email" value=" {{user_info.email}}">
+            <input type="submit" class="submit">
+        </form>
+    </div>
+</body>
+</html>
