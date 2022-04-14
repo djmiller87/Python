@@ -1,0 +1,33 @@
+.container{
+    width: 1000px;
+    margin: auto;
+    padding: 15px 0px;
+    background-color: rgb(52, 52, 52);
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.alldojos, .newdojo, .dojoinfo{
+    margin: 50px;
+    padding: 20px;
+    display: block;
+    align-items: center;
+}
+
+label, input{
+    display: block;
+    margin: 20px 0px;
+}
+
+a{
+    color: orangered;
+    display: block;
+    padding: 10px;
+}
+
+.dojotable{
+    border: 2px solid white;
+}
+
