@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    margin: 40px auto;
+    width: 600px;
+    background-color: rgb(27, 56, 57);
+    border-radius: 10px;
+    color: rgb(202, 202, 77);
+    display: flex;
+    font-family: 'Signika Negative', sans-serif;
+    letter-spacing: 1px;
+}
+
+.container2{
+    margin: 40px auto;
+    width: 800px;
+    background-color: rgb(27, 56, 57);
+    border-radius: 10px;
+    color: rgb(202, 202, 77);
+    display: flex;
+    font-family: 'Signika Negative', sans-serif;
+    letter-spacing: 1px;
+}
+
+.form{
+    margin: auto;
+    padding: 40px;
+    width: 400px;
+}
+
+.form2{
+    margin: auto;
+    padding: 40px;
+    width: 600px;
+    /* display: flex; */
+}
+
+.user{
+    display: flex;
+}
+label, p{
+    color: white;
+}
+label, input, select, p{
+    font-size: 20px;
+    margin: 20px 0px;
+    display: block;
+    justify-content: left;
+}
+
+input, select, textarea{
+    width: 400px;
+    font-size: medium;
+    font-family: 'Signika Negative', sans-serif;
+    border-radius: 5px;
+}
+
+input, select{
+    height: 30px;
+    border: 0px;
+}
+
+a{
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+}
+
+button{
+    height: 30px;
+    width: 80px;
+    background-color: rgb(202, 202, 77);
+    font-family: 'Signika Negative', sans-serif;
+    border-radius: 5px;
+}
+
+.option{
+    margin: 10px;
+    height: 25px;
+    width: auto;
+    display: flex;
+    justify-content: left;
+}
+
+.info{
+    display: block;
+    width: 300px;
+}
