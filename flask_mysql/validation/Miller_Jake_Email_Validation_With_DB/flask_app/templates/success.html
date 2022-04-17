@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div class="success_message">
+                <h3>The email that you entered is<br>a VALID email address! Thank you!</h3>
+            </div>
+            <div>
+                <h1>Email Addresses Entered:</h1>
+            </div>
+            {%for email in all_emails%}
+                <div class="email">
+                    <p>{{email.email}}</p>
+                    <a href="/delete/{{email.id}}"> Delete</a>
+                </div>
+                {%endfor%}
+                <div>
+                <a href="/">Home</a>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

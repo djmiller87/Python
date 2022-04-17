@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    margin: auto;
+    width: 800px;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Signika Negative', sans-serif;
+    background-color: rgb(212, 212, 212);
+    border: 2px solid grey;
+    border-radius: 15px;
+}
+
+div {
+    display: block;
+    margin: 15px 0px;
+    padding: 10px;
+}
+
+h3 {
+    background-color: green;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success_message {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+}
+
+.email {
+    display: flex;
+    justify-content: space-between;
+}
+
