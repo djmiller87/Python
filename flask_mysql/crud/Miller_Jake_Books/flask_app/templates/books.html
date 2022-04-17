@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="newbook">
+            <h2>New Book</h2>
+            <form action="/save/book", method="post">
+                <div class="books">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title">
+                </div>
+                <div class="books">
+                    <label for="num_of_pages">Number of pages:</label>
+                    <input type="number" name="num_of_pages">
+                </div>
+                <input class="add" type="submit" value="Add">
+            </form>
+            <a href="/">Home</a>
+        </div>
+        <div class="allbooks">
+            <h2>All Books</h2>
+            <table>
+                {%for book in all_books%}
+                    <tr>
+                        <td><a href="/book/show/{{book['id']}}" style="color: white;">{{book['title']}}</a></td>
+                    </tr>
+                {%endfor%}
+            </table>
+            
+        </div>
+    </div>
+</body>
+</html>

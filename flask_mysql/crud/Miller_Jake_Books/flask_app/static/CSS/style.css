@@ -1,0 +1,49 @@
+.container {
+    margin: auto;
+    width: 1000px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: 'Signika Negative', sans-serif;
+    border: 10px solid rgb(59, 59, 59);
+}
+
+div {
+    margin: 100px;
+}
+
+label, input{
+    margin: 15px 5px;
+    padding: 10px 0px;
+}
+
+.add{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    font-weight: bold;
+}
+
+label{
+    display: inline;
+}
+
+.books{
+    margin: 0px;
+    display: flex;
+}
+
+td{
+    padding-right: 25px;
+}
+
+th{
+    font-size: 20px;
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+

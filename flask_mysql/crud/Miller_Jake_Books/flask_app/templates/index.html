@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="newauthor">
+            <h2>New Author</h2>
+            <form action="/save/author", method="post">
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+                <input class="add" type="submit" value="Add">
+            </form>
+        </div>
+        <div class="allauthors">
+            <h2>All Authors</h2>
+            <table>
+                {% for author in all_authors%}
+                        <tr>
+                            <td><a href="/author/show/{{author['id']}}" style="color: white;">{{author['name']}}</a></td>
+                        </tr>
+                {%endfor%}
+            </table>
+            <a href="/books">Add Book</a>
+        </div>
+    </div>
+</body>
+</html>

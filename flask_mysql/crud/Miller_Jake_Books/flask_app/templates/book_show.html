@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Show</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="favoriteby">
+            <h2>Title: {{one_book.title}}</h2>
+            <h5>Favorited by:</h5>
+            <table>
+                <tr>
+                    <th>Author Name</th>
+                </tr>
+                {%for author in one_book.authors%}
+                    <tr>
+                        <td>{{author.name}}</td>
+                    </tr>
+                {%endfor%}
+            </table>
+            <a href="/">Home</a>
+        </div>
+        <div class="authorfavorite">
+            <h2>Add Book's Favorite</h2>
+            <form action="/book/favorites", method="post">
+                <label for="author_select">Book:</label>
+                <input type="hidden" name="book_id" value="{{one_book.id}}">
+                <select name="author_id" id="author_id">
+                    <option>---Select Author---</option>
+                    {%for author in all_authors%}
+                        <option value="{{author.id}}">{{author.name}}</option>
+                    {%endfor%} 
+                </select>
+                <input class="add" type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
