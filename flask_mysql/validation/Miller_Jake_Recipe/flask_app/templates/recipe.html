@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/recipe_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wallcontainer">
+        <div class="topper">
+            <div>
+                <h1>Welcome {{one_user.first_name}}</h1>
+            </div>
+            <div class="out">
+                <a href="/dashboard/{{one_user.id}}">Dashboard</a>
+                <a class="logout" href="/logout" name="logout" value="Log Out">Log Out</a>
+            </div>
+        </div>
+        <div class="messagelist">
+            <div>
+                <h3>{{recipe_info.name}}</h3>
+            </div>
+            <div class="recipeinfo">
+                <div>
+                    <h5>Description:</h5>
+                </div>
+                <div>
+                    <p>{{recipe_info.description}}</p>
+                </div>
+            </div>
+            <div class="recipeinfo">
+                <div>
+                    <h5>Under 30 minutes:</h5>
+                </div>
+                <div>
+                    <p>{{recipe_info.time}}</p>
+                </div>
+            </div>
+            <div class="recipeinfo">
+                <div>
+                    <h5>Instructions:</h5>
+                </div>
+                <div>
+                    <p>{{recipe_info.instructions}}</p>
+                </div>
+            </div>
+            <div class="recipeinfo">
+                <div>
+                    <h5>Date Made:</h5>
+                </div>
+                <div>
+                    <p>{{recipe_info.date_made}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
