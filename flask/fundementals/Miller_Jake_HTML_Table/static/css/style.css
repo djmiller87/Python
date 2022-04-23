@@ -1,0 +1,27 @@
+.heading, .table{
+    margin: auto;
+    width: 800px;
+    background-color: black;
+    color: yellow;
+    font-size: 35px;
+}
+
+.headers, .names{
+    width: 800px;
+    padding: 10px;
+    display: flex;
+    
+}
+
+.table{
+    margin: auto;
+    background-color: white;
+    color: black;
+    font-size: 20px; 
+}
+
+p{
+    width: 266px;
+    display: flex;
+    justify-content: center;
+}
