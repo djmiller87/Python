@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendships</title>
+</head>
+<body>
+    <div class="container">
+        <div class="friendships">
+            <h1>Friendships</h1>
+            <table>
+                <tr>
+                    <th>User</th>
+                    <th>Friend</th>
+                </tr>
+                {%for user in all_friendships%}
+                    <tr>
+                        <td style="border: 2px solid black;">{{user.first_name}} {{user.last_name}}</td>
+                        <td style="border: 2px solid black;">{{user.friend_first}} {{user.friend_last}}</td>
+                    </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="addcreate">
+            <div>
+                <h2>Add User</h2>
+                <form action="/add_user" method="post">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                    <input type="submit" value="Add User">
+                </form>
+            </div>
+            <div>
+                <h2>Create Friendship</h2>
+                <form action="/create_friendship" method="post">
+                    <label for="user">User:</label>
+                    <select name="user_id">
+                        {%for user in all_users %}
+                            <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                        {%endfor%}
+                    </select>
+                    <label for="friend">Friend:</label>
+                    <select name="friend_id" value=""> 
+                        {%for friend in all_users%}
+                            <option value="{{friend.id}}">{{friend.first_name}} {{friend.last_name}}</option>
+                        {%endfor%}
+                    </select>
+                    <input type="submit" value="Create">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
