@@ -1,0 +1,22 @@
+    @classmethod
+    def save(cls, data):
+        query = "INSERT INTO users (first_name, last_name, email, password, created_at, updated_at) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s, NOW(), NOW());"
+        results = connectToMySQL('user_login').query_db(query, data)
+        return results
+
+
+@app.route('/register', methods=['POST'])
+def register():
+    if not user.User.validate_user(request.form):
+        return redirect('/')
+    pw_hash = bcrypt.generate_password_hash(request.form['password'])
+    print(pw_hash)
+    data ={
+        'first_name': request.form['first_name'],
+        'last_name': request.form['last_name'],
+        'email': request.form['email'],
+        'password': pw_hash
+    }
+    user_id = user.User.save(data)
+    session['user_id'] = user_id
+    return redirect('/dashboard')
