@@ -1,0 +1,61 @@
+Command Prompt
+____________________________
+
+------cd into file path
+
+paste:
+(Windows)
+python -m pipenv install flask==2.0.3 werkzeug==2.0.3 pymysql flask-bcrypt
+
+(Mac)
+python3 -m pipenv install flask==2.0.3 werkzeug==2.0.3 pymysql flask-bcrypt
+
+____________________________
+Project Folder
+____________________________
+
+------__init__.py:
+
+from flask import flask
+app = Flask(__name__)
+app.secret_key = "A special secret key."
+
+
+------models:
+
+from flask_app.config.mysqlconnection import connectToMySQL
+
+
+------controllers:
+
+from flask_app import app
+from flask import render_template, redirect, request, session, flash
+from flask_app.models import (*model*)
+
+-------server.py:
+
+from flask_app import app
+from flask_app.controllers import (*controller*)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+_____________________________________________________________
+SET UP COMPLETE
+_____________________________________________________________
+
+
+_______________________________
+Opening Project on Live Server:
+
+
+-------In command prompt:
+
+python -m pipenv shell
+
+python server.py
+
+-------In Chrome tab address:
+
+localhost:5000
