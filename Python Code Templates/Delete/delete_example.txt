@@ -1,0 +1,12 @@
+    @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM messages WHERE messages.id = %(id)s;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        return results
+
+@app.route('/delete_message/<int:id>')
+def delete_message(id):
+    data = {
+        'id' : id
+    }
+    message.Message.delete(data)
