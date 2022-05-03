@@ -1,0 +1,10 @@
+    @classmethod
+    def one_user_info(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        if len(results) < 1:
+            return False
+        user_info = cls(results[0])
+        return user_info
+
+
