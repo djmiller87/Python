@@ -1,0 +1,21 @@
+    @classmethod
+    def update_user(cls, data):
+        query = "UPDATE users SET first_name = %(fname)s, last_name = %(lname)s, email = %(email)s, updated_at = NOW() WHERE id = %(id)s;"
+        return connectToMySQL('users_schema').query_db(query, data)
+
+
+--------------------------------------------------------------------------------
+@app.route('/edit_user/<int:id>')
+def edit_user(id):
+    data = {
+        'id': id
+    }
+    one_user = User.show_a_user(data)
+    return render_template('edit_user.html', user_info = one_user)
+
+    @classmethod
+    def show_a_user(cls, data):
+        query = 'SELECT * FROM users WHERE id = %(id)s;'
+        results = connectToMySQL('users_schema').query_db(query, data) #Can't just return 'results' because it is a dictionary inside a list.
+        user_info = cls(results[0])     #Here we have to make the dictionary it's own class and assign a variable to it so we can now take from it what we need as a class and not a dictionary inside a list.
+        return user_info
