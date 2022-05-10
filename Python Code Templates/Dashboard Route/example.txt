@@ -1,0 +1,42 @@
+@app.route('/dashboard/<int:id>')
+def dashboard(id):
+    data = {
+        'id' : session['user_id']
+    }
+    if session['user_id'] != id:
+        return redirect('/')
+    one_user = user.User.one_user_info(data)
+    user_messages = message.Message.get_user_messages(data)
+    all_users = user.User.get_all_users()
+    return render_template('wall.html', one_user = one_user, user_messages = user_messages, all_users = all_users )
+
+
+    @classmethod
+    def one_user_info(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        if len(results) < 1:
+            return False
+        user_info = cls(results[0])
+        return user_info
+
+        @classmethod
+    def get_user_messages(cls, data):
+        query = "SELECT users.first_name as sender, users2.first_name as recipient, messages.* FROM users LEFT JOIN messages ON users.id = messages.sender_id LEFT JOIN users as users2 ON users2.id = messages.recipient_id WHERE users2.id = %(id)s;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        print(results)
+        messages = []
+        for message in results:
+            messages.append(cls(message))
+        print(messages)
+        return messages
+
+
+    @classmethod
+    def get_all_users(cls):
+        query = "SELECT * FROM users;"
+        results = connectToMySQL(cls.db_name).query_db(query)
+        users = []
+        for user in results:
+            users.append(cls(user))
+        return users

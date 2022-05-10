@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{one_user.first_name}}'s Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wallcontainer">
+        <div class="topper">
+            <div>
+                <h1>Coding Dojo Wall</h1>
+            </div>
+            <div class="out">
+                <h2 class="welcome" style="color: rgb(114, 255, 187);">Welcome {{one_user.first_name}}</h1>
+                <a href="/logout" name="logout" value="Log Out">Log Out</a>
+            </div>
+        </div>
+        <div class="usermessages">
+            <div class="messagelist">
+                <div>
+                    <h3>{{user_messages|length}} Message(s) for {{one_user.first_name}}</h3>
+                </div>
+                {%for message in user_messages%}
+                <form action="/delete_message/{{message.id}}">
+                    <div class="message">
+                        <div>
+                            <h3>{{message.sender}} said {{message.time_span()}}:</h3>
+                            <p>"{{message.message}}"</p>
+                        </div>
+                        <div style="margin-left: 15px;">
+                            <input type="submit" name="message" value="Delete">
+                        </div>
+                    </div>
+                    <p style="margin: 0px;">-------------------------------------</p>
+                    </form>
+                {%endfor%}
+            </div>
+            <div class="send">
+                <div>
+                    <h2>Send a Message:</h2>
+                </div>
+                <div >
+                {%for user in all_users%}
+                    {%if user.id != session.user_id:%}
+                        <form action="/post_message" method="post">
+                            <input  type="hidden" name="sender_id" value={{session.user_id}}>
+                            <input  type="hidden" name="recipient_id" value={{user.id}}>
+                            <label class="messageinput" for="recipient_id">Message {{user.first_name}}:</label>
+                            <textarea class="messageinput" name="message" cols="30" rows="3"></textarea>
+                            <input type="submit" value="Send">
+                        </form>
+                    {%endif%}
+                {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
