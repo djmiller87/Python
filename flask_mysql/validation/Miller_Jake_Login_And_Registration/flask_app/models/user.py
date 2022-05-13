@@ -49,7 +49,7 @@ class User:
             flash("*Invalid email address!", 'register')
             is_valid = False
         if user_in_db:
-            flash("*Email already taken!")
+            flash("*Email already taken!", 'register')
             is_valid = False
         if len(user['password']) < 8:
             flash("*Password must contain at least 8 characters!", 'register')
