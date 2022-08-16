@@ -1,0 +1,115 @@
+Microsoft Windows [Version 10.0.22000.556]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\djmil>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 80
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ^C
+mysql> USE dojos_and_ninjas_schema;
+Database changed
+mysql> INSERT INTO dojos (name, created_at, updated_at)VALUES ("dojo1", NOW(), NOW()), ("dojo2", NOW(), NOW()), ("dojo3", NOW(), NOW());
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> DELETE FROM dojos WHERE id = 1 OR id = 2 OR id = 3;
+Query OK, 3 rows affected (0.01 sec)
+
+mysql> INSERT INTO dojos (name, created_at, updated_at)VALUES ("dojo4", NOW(), NOW()), ("dojo5", NOW(), NOW()), ("dojo6", NOW(), NOW());
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)VALUES ("Jake", "Miller", "34", 4, NOW(), NOW()), ("Megan", "Foster", "22", 4, NOW(), NOW()), ("Alex", "Bishop", "27", 4, NOW(), NOW());
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)VALUES ("Rose", "Collins", "19", 5, NOW(), NOW()), ("Aaron", "Burk", "44", 5, NOW(), NOW()), ("Oscar", "Wilde", "26", 5, NOW(), NOW());
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)VALUES ("Fiona", "Richards", "21", 6, NOW(), NOW()), ("Dustin", "Hamilton", "30", 6, NOW(), NOW()),("Angela", "Porretta", "29", 6, NOW(), NOW());
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM ninjas WHERE dojo_id = 4;
++----+------------+-----------+------+---------+---------------------+---------------------+
+| id | first_name | last_name | age  | dojo_id | created_at          | updated_at          |
++----+------------+-----------+------+---------+---------------------+---------------------+
+|  1 | Jake       | Miller    |   34 |       4 | 2022-03-28 18:08:43 | 2022-03-28 18:08:43 |
+|  2 | Megan      | Foster    |   22 |       4 | 2022-03-28 18:08:43 | 2022-03-28 18:08:43 |
+|  3 | Alex       | Bishop    |   27 |       4 | 2022-03-28 18:08:43 | 2022-03-28 18:08:43 |
++----+------------+-----------+------+---------+---------------------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM ninjas WHERE dojo_id = 6;
++----+------------+-----------+------+---------+---------------------+---------------------+
+| id | first_name | last_name | age  | dojo_id | created_at          | updated_at          |
++----+------------+-----------+------+---------+---------------------+---------------------+
+|  7 | Fiona      | Richards  |   21 |       6 | 2022-03-28 18:09:07 | 2022-03-28 18:09:07 |
+|  8 | Dustin     | Hamilton  |   30 |       6 | 2022-03-28 18:09:07 | 2022-03-28 18:09:07 |
+|  9 | Angela     | Porretta  |   29 |       6 | 2022-03-28 18:09:07 | 2022-03-28 18:09:07 |
++----+------------+-----------+------+---------+---------------------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM dojos JOIN ninjas ON dojos.id = ninjas.dojo_id WHERE ninjas.id = 9;
++----+-------+---------------------+---------------------+----+------------+-----------+------+---------+---------------------+---------------------+
+| id | name  | created_at          | updated_at          | id | first_name | last_name | age  | dojo_id | created_at          | updated_at          |
++----+-------+---------------------+---------------------+----+------------+-----------+------+---------+---------------------+---------------------+
+|  6 | dojo6 | 2022-03-28 18:08:25 | 2022-03-28 18:08:25 |  9 | Angela     | Porretta  |   29 |       6 | 2022-03-28 18:09:07 | 2022-03-28 18:09:07 |
++----+-------+---------------------+---------------------+----+------------+-----------+------+---------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+USE dojos_and_ninjas_schema;
+
+SELECT * FROM dojos;
+
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("dojo1", NOW(), NOW()), 
+("dojo2", NOW(), NOW()), 
+("dojo3", NOW(), NOW());
+
+DELETE FROM dojos WHERE id = 1 OR id = 2 OR id = 3;
+
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("dojo4", NOW(), NOW()), 
+("dojo5", NOW(), NOW()), 
+("dojo6", NOW(), NOW());
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES ("Jake", "Miller", "34", 4, NOW(), NOW()), 
+("Megan", "Foster", "22", 4, NOW(), NOW()), 
+("Alex", "Bishop", "27", 4, NOW(), NOW());
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES ("Rose", "Collins", "19", 5, NOW(), NOW()), 
+("Aaron", "Burk", "44", 5, NOW(), NOW()), 
+("Oscar", "Wilde", "26", 5, NOW(), NOW());
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES ("Fiona", "Richards", "21", 6, NOW(), NOW()), 
+("Dustin", "Hamilton", "30", 6, NOW(), NOW()),
+("Angela", "Porretta", "29", 6, NOW(), NOW());
+
+SELECT * FROM ninjas WHERE dojo_id = 4;
+
+SELECT * FROM ninjas WHERE dojo_id = 6;
+
+SELECT * FROM dojos 
+JOIN ninjas ON dojos.id = ninjas.dojo_id 
+WHERE ninjas.id = 9; 

@@ -1,0 +1,14 @@
+USE twitter;
+
+SELECT * FROM users;
+
+INSERT INTO users (first_name, last_name, handle, birthday, created_at, updated_at)
+VALUES ("Jake", "Miller", "jakemiller", "1987-05-16", NOW(), NOW());
+
+UPDATE twitter.users 
+SET last_name = 'Miller' WHERE id =5;
+
+UPDATE twitter.users 
+SET last_name = "Rondo" WHERE id = 5;
+
+DELETE FROM users WHERE id = 6;
