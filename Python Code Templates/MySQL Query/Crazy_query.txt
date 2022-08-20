@@ -1,0 +1,9 @@
+SELECT users.first_name AS users1, users2.first_name AS friend, friendships.* FROM users LEFT JOIN friendships ON users.id = friendships.user_id LEFT JOIN users AS users2 ON users2.id = friendships.friend_id;
+
+*Done on a Many to Many relationship.
+
+
+_________________________________________________________________________________________________________
+SELECT users.id, users.first_name, users.last_name, friends.first_name AS friend_first, friends.last_name AS friend_last FROM users LEFT JOIN friendships ON friendships.user_id = users.id JOIN users AS friends ON friends.id = friendships.friend_id;
+
+*Normal query done on a many to many relationship.
